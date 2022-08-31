@@ -10,28 +10,21 @@ namespace MagicShopUnitTest
         [TestMethod]
         public void FirstInitializeData()
         {
-            MagicShop ms = new MagicShop();
+            MagicShop ms = new MagicShop(100);
         }
 
         [TestMethod]
         public void SecondInitailizeData()
         {
-            MagicShop ms = new MagicShop();
+            MagicShop ms = new MagicShop(100);
         }
 
-        [TestMethod]
-        public void GetFullList()
-        {
-            MagicShop ms = new MagicShop();
-            MagicItemList items = ms.GetFullList();
-        }
 
         [TestMethod]
         public void QueryAllItemsInData()
         {
             MagicShop ms = new MagicShop();
-            MagicItemList items = ms.GetFullList();
-            foreach (var item in items.Items)
+            foreach (var item in ms.Inventory)
             {
                 if (item.Index == null) Assert.Fail("Index was null");
                 if (item.Name == null) Assert.Fail("Name was null");
