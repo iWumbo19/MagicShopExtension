@@ -31,6 +31,7 @@ namespace MagicShopLibrary
         }
         public MagicShop(MagicShopOptions options)
         {
+            Data.Initialize();
             PlayerLevel = options.AveragePlayerLevel;
             ShopSize = options.Size;
             ShopType = options.Type;
