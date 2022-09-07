@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Linq;
 using System.Text;
 
 namespace MagicShopLibrary
@@ -26,18 +27,15 @@ namespace MagicShopLibrary
         public MagicShop(int count)
         {
             Data.Initialize();
-            Inventory = GetRandomItems(count).Items;
+            Inventory = Data.GetRandomItems(count).Items;
         }
         public MagicShop(MagicShopOptions options)
         {
             PlayerLevel = options.AveragePlayerLevel;
             ShopSize = options.Size;
             ShopType = options.Type;
-
+            Inventory = Data.GetItems(ShopType, ShopSize, PlayerLevel);
         }
         
-
-
-        private MagicItemList GetRandomItems(int count) => new MagicItemList(RNG.GetRandomItems(Data.FullList.Items, count));
     }
 }

@@ -26,6 +26,23 @@ namespace MagicShopLibrary
             }
             return output;
         }
+        internal static MagicItem[] GetRandomItems(MagicItem[] items, ShopSize size)
+        {
+            int count = ShopSizeToItemCount(size);
+            MagicItem[] output = new MagicItem[count];
+            List<int> indexUsed = new List<int>();
+            for (int i = 0; i < count; i++)
+            {
+                int index = rng.Next(items.Length);
+                while (indexUsed.Contains(index))
+                {
+                    index = rng.Next(items.Length);
+                }
+                output[i] = items[index];
+                indexUsed.Add(index);
+            }
+            return output;
+        }
         internal static MagicItem[] GetRandomItems(List<MagicItem> items, int count)
         {
             MagicItem[] output = new MagicItem[count];
@@ -41,6 +58,28 @@ namespace MagicShopLibrary
                 indexUsed.Add(index);
             }
             return output;
+        }
+        private static int ShopSizeToItemCount(ShopSize size)
+        {
+            switch (size)
+            {
+                case ShopSize.Hamlet:
+                    return rng.Next(2, 6);
+                case ShopSize.Village:
+                    return rng.Next(3, 7);
+                case ShopSize.SmallTown:
+                    return rng.Next(4, 8);
+                case ShopSize.LargeTown:
+                    return rng.Next(5, 9);
+                case ShopSize.SmallCity:
+                    return rng.Next(6, 10);
+                case ShopSize.LargeCity:
+                    return rng.Next(7, 11);
+                case ShopSize.Metropolis:
+                    return rng.Next(8, 12);
+                default:
+                    throw new Exception("Did not recognize passed in ShopSize");
+            }
         }
     }
 }
