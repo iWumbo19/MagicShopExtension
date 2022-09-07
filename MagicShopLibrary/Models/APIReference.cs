@@ -9,12 +9,12 @@ namespace MagicShopLibrary.Models
     {
         public string Index { get; set; }
 
-        [JsonProperty("name")]
-        public string NameString { get; set; }
+        [JsonProperty("Name")]
+        public string Name { get; set; }
 
-        public ItemType Name
+        public ItemType Type
         {
-            get { return GetCategoryEnum(NameString); }
+            get { return GetCategoryEnum(Name); }
             private set { }
         }
 
@@ -28,7 +28,7 @@ namespace MagicShopLibrary.Models
                     return ItemType.Armor;
                 case "Ammunition":
                     return ItemType.Ammunition;
-                case "Wonderous Item":
+                case "Wondrous Items":
                     return ItemType.WondrousItem;
                 case "Weapon":
                     return ItemType.Weapon;
