@@ -17,13 +17,13 @@ namespace MagicShopLibrary
             FullList = JsonConvert.DeserializeObject<MagicItemList>(File.ReadAllText(@"magicshop.json"));
         }
         internal static MagicItem[] GetItems(Rarity rarity) => FullList.Items.Where(x => x.Rarity.Value == rarity).ToArray();
-        internal static MagicItem[] GetItems(ItemType type) => FullList.Items.Where(x => x.Category.Name == type).ToArray();
-        internal static MagicItem[] GetItems(ItemType type, Rarity rarity) => FullList.Items.Where(x => x.Category.Name == type && x.Rarity.Value == rarity).ToArray();
+        internal static MagicItem[] GetItems(ItemType type) => FullList.Items.Where(x => x.Category.Type == type).ToArray();
+        internal static MagicItem[] GetItems(ItemType type, Rarity rarity) => FullList.Items.Where(x => x.Category.Type == type && x.Rarity.Value == rarity).ToArray();
         internal static MagicItem[] GetItems(ShopType type, ShopSize size, int level)
         {
             List<Rarity> rarities = LevelToRarityList(level);
             List<ItemType> types = ShopTypeToItemType(type);
-            MagicItem[] matchingItems = FullList.Items.Where(x => types.Contains(x.Category.Name) && rarities.Contains(x.Rarity.Value)).ToArray();
+            MagicItem[] matchingItems = FullList.Items.Where(x => types.Contains(x.Category.Type) && rarities.Contains(x.Rarity.Value)).ToArray();
             return RNG.GetRandomItems(matchingItems, size);
         }
         internal static MagicItemList GetRandomItems(int count) => new MagicItemList(RNG.GetRandomItems(Data.FullList.Items, count));
