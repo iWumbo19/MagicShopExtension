@@ -1,6 +1,8 @@
 using MagicShopLibrary;
 using MagicShopLibrary.Models;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
+using System.Collections.Generic;
 
 namespace MagicShopUnitTest
 {
@@ -34,6 +36,22 @@ namespace MagicShopUnitTest
                 if (item.Category == null) Assert.Fail("Category was null");
                 if (item.Rarity == null) Assert.Fail("Rarity was null");
             }
+        }
+
+        [TestMethod]
+        public void MakeAllShops()
+        {
+            MagicShop ms;
+            ShopType[] types = (ShopType[])Enum.GetValues(typeof(ShopType));
+            ShopSize[] sizes = (ShopSize[])Enum.GetValues(typeof(ShopSize));
+
+            for(int i = 0; i < types.Length; i++)
+            {
+                for (int j = 0; j < sizes.Length; j++)
+                {
+                    ms = new MagicShop(new MagicShopOptions(20, types[i], sizes[j]));
+                }
+            } 
         }
     }
 }
