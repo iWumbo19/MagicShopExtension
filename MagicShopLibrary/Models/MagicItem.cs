@@ -1,7 +1,4 @@
 ﻿using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace MagicShopLibrary.Models
 {
@@ -30,6 +27,12 @@ namespace MagicShopLibrary.Models
 
         [JsonProperty("varient")]
         public bool Varient { get; set; }
+
+        public int Cost
+        {
+            get { return RNG.CostOfItem(Rarity.Value); }
+            private set { }
+        }
 
     }
 }

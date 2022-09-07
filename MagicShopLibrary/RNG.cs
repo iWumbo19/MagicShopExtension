@@ -81,5 +81,25 @@ namespace MagicShopLibrary
                     throw new Exception("Did not recognize passed in ShopSize");
             }
         }
+        internal static int CostOfItem(Rarity rarity)
+        {
+            switch (rarity)
+            {
+                case Rarity.Unknown:
+                    return rng.Next(50, 101);
+                case Rarity.Common:
+                    return rng.Next(100 - 500);
+                case Rarity.Uncommon:
+                    return rng.Next(500, 1000);
+                case Rarity.Rare:
+                    return rng.Next(500, 5001);
+                case Rarity.VeryRare:
+                    return rng.Next(5000, 50001);
+                case Rarity.Legendary:
+                    return rng.Next(50000, 100000);
+                default:
+                    throw new Exception("Didn't Recognize passed in rarity");
+            }
+        }
     }
 }
