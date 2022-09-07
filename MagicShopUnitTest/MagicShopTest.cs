@@ -45,13 +45,16 @@ namespace MagicShopUnitTest
             ShopType[] types = (ShopType[])Enum.GetValues(typeof(ShopType));
             ShopSize[] sizes = (ShopSize[])Enum.GetValues(typeof(ShopSize));
 
-            for(int i = 0; i < types.Length; i++)
+            for (int x = 1; x < 21; x++)
             {
-                for (int j = 0; j < sizes.Length; j++)
+                for (int i = 0; i < types.Length; i++)
                 {
-                    ms = new MagicShop(new MagicShopOptions(20, types[i], sizes[j]));
-                }
-            } 
+                    for (int j = 0; j < sizes.Length; j++)
+                    {
+                        ms = new MagicShop(new MagicShopOptions(20, types[i], sizes[j]));
+                    }
+                }  
+            }
         }
     }
 }
