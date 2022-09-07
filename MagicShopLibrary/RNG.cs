@@ -88,7 +88,7 @@ namespace MagicShopLibrary
                 case Rarity.Unknown:
                     return rng.Next(50, 101);
                 case Rarity.Common:
-                    return rng.Next(100 - 500);
+                    return rng.Next(100, 500);
                 case Rarity.Uncommon:
                     return rng.Next(500, 1000);
                 case Rarity.Rare:
