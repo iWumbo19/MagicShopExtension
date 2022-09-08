@@ -6,6 +6,11 @@ namespace MagicShopLibrary
 {
     internal static class Utilities
     {
+        internal static Dictionary<string, ShopType> StringToShopType = new Dictionary<string, ShopType>();
+        internal static Dictionary<string, ShopSize> StringToShopSize = new Dictionary<string, ShopSize>();
+        internal static Dictionary<string, PlayerLevel> StringToPlayerLevel = new Dictionary<string, PlayerLevel>();
+
+
         internal static string ItemTypeToString(ItemType type)
         {
             switch (type)
@@ -34,6 +39,17 @@ namespace MagicShopLibrary
                     throw new Exception("Could not convert ItemType to string");
             }
         }
+
+        internal static void BuildTables()
+        {
+            foreach (ShopType item in Enum.GetValues(typeof(ShopType)))
+                StringToShopType.Add(item.ToString(), item);
+            foreach (ShopSize item in Enum.GetValues(typeof(ShopSize)))
+                StringToShopSize.Add(item.ToString(), item);
+            foreach (PlayerLevel item in Enum.GetValues(typeof(PlayerLevel)))
+                StringToPlayerLevel.Add(item.ToString(), item);
+        }
+
         internal static ItemType StringToItemType(string type)
         {
             switch (type)

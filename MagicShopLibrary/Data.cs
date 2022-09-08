@@ -15,7 +15,11 @@ namespace MagicShopLibrary
         internal static void Initialize()
         {
             FullList = JsonConvert.DeserializeObject<MagicItemList>(File.ReadAllText(@"magicshop.json"));
+            Utilities.BuildTables();
         }
+
+        
+
         internal static MagicItem[] GetItems(Rarity rarity) => FullList.Items.Where(x => x.Rarity.Value == rarity).ToArray();
         internal static MagicItem[] GetItems(ItemType type) => FullList.Items.Where(x => x.Category.Type == type).ToArray();
         internal static MagicItem[] GetItems(ItemType type, Rarity rarity) => FullList.Items.Where(x => x.Category.Type == type && x.Rarity.Value == rarity).ToArray();
@@ -65,6 +69,9 @@ namespace MagicShopLibrary
                 case ShopType.WandWright:
                     output.Add(ItemType.Scroll);
                     output.Add(ItemType.Wand);
+                    break;
+                case ShopType.Wonders:
+                    output.Add(ItemType.WondrousItem);
                     break;
                 default:
                     throw new Exception("Did not recognize pass in ShopType");
