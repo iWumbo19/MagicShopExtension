@@ -8,7 +8,6 @@ namespace MagicShopConsoleApp
         static void Main(string[] args)
         {
             MagicShop ms = new MagicShop();
-            Console.WriteLine(ms.TESTGetAllItemTypes());
         }
     }
 }

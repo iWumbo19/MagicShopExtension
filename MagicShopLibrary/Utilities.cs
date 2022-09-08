@@ -4,11 +4,11 @@ using System.Text;
 
 namespace MagicShopLibrary
 {
-    internal static class Utilities
+    public static class Utilities
     {
-        internal static Dictionary<string, ShopType> StringToShopType = new Dictionary<string, ShopType>();
-        internal static Dictionary<string, ShopSize> StringToShopSize = new Dictionary<string, ShopSize>();
-        internal static Dictionary<string, PlayerLevel> StringToPlayerLevel = new Dictionary<string, PlayerLevel>();
+        public readonly static Dictionary<string, ShopType> StringToShopType = new Dictionary<string, ShopType>();
+        public readonly static Dictionary<string, ShopSize> StringToShopSize = new Dictionary<string, ShopSize>();
+        public readonly static Dictionary<string, PlayerLevel> StringToPlayerLevel = new Dictionary<string, PlayerLevel>();
 
 
         internal static string ItemTypeToString(ItemType type)
