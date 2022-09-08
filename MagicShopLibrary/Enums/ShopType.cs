@@ -11,6 +11,7 @@ namespace MagicShopLibrary
         Armorer,
         Alchemist,
         Scribe,
-        WandWright
+        WandWright,
+        Wonders
     }
 }
