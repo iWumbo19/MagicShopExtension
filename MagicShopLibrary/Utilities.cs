@@ -12,7 +12,7 @@ namespace MagicShopLibrary
         public readonly static Dictionary<string, ItemType> StringToItemType = new Dictionary<string, ItemType>();
 
 
-        internal static void BuildTables()
+        static Utilities()
         {
             try
             {

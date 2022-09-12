@@ -21,17 +21,14 @@ namespace MagicShopLibrary
 
         public MagicShop()
         {
-            Data.Initialize();
             Inventory = Data.FullList.Items;
         }
         public MagicShop(int count)
         {
-            Data.Initialize();
             Inventory = Data.GetRandomItems(count).Items;
         }
         public MagicShop(MagicShopOptions options)
         {
-            Data.Initialize();
             PlayerLevel = options.AveragePlayerLevel;
             ShopSize = options.Size;
             ShopType = options.Type;

@@ -11,15 +11,11 @@ namespace MagicShopLibrary
     internal static class Data
     {
         internal static MagicItemList FullList { get; private set; }
-
-        internal static void Initialize()
+        static Data()
         {
             FullList = JsonConvert.DeserializeObject<MagicItemList>(File.ReadAllText(@"magicshop.json"));
-            Utilities.BuildTables();
+
         }
-
-        
-
         internal static MagicItem[] GetItems(Rarity rarity) => FullList.Items.Where(x => x.Rarity.Value == rarity).ToArray();
         internal static MagicItem[] GetItems(ItemType type) => FullList.Items.Where(x => x.Category.Type == type).ToArray();
         internal static MagicItem[] GetItems(ItemType type, Rarity rarity) => FullList.Items.Where(x => x.Category.Type == type && x.Rarity.Value == rarity).ToArray();
