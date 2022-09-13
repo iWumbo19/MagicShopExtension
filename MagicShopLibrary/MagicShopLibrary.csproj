@@ -2,6 +2,11 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <PackageId>Wumbo.$(AssemblyName)</PackageId>
+    <Authors>Chris Rancourt</Authors>
+    <Description>A DnD 5e Magic Shop Generator with all itesm from PHB. Create object with options.</Description>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
   </PropertyGroup>
 
   <ItemGroup>
